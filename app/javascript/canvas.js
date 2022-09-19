@@ -8,9 +8,14 @@ $(document).on('turbolinks:load', function() {
     if (ctx) {
       console.log('canvas context found');
 
-      // enable view button
+      // enable view buttons
       $('#add').on('click', function() {
-        Add();
+        add();
+      });
+
+      // enable view button
+      $('#save').on('click', function() {
+        save();
       });
 
       // http://fabricjs.com/custom-control-render
@@ -26,7 +31,7 @@ $(document).on('turbolinks:load', function() {
       fabric.Object.prototype.cornerColor = 'blue';
       fabric.Object.prototype.cornerStyle = 'circle';
 
-      function Add() {
+      function add() {
         const rect = new fabric.Rect({
           left: 100,
           top: 50,
@@ -66,6 +71,12 @@ $(document).on('turbolinks:load', function() {
         ctx.rotate(fabric.util.degreesToRadians(fabricObject.angle));
         ctx.drawImage(img, -size / 2, -size / 2, size, size);
         ctx.restore();
+      }
+
+      // TODO send post request to controller, save, and figure how to load
+      function save() {
+        console.log('drawing saved');
+        JSON.stringify(canvas);
       }
     }
   }
