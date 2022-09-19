@@ -1,0 +1,10 @@
+<h1>Editing Drawing</h1>
+<br/>
+<%= render 'form', drawing: @drawing %>
+
+<br/>
+<%= link_to 'Show', @drawing, class:"btn btn-secondary" %>
+
+<%= link_to 'Delete', @drawing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+
+<%= link_to 'Back', drawings_path, class:"btn btn-dark" %>

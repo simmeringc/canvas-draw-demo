@@ -1,0 +1,33 @@
+<%= form_with(model: drawing, local: true) do |form| %>
+  <% if drawing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(drawing.errors.count, "error") %> prohibited this drawing from being saved:</h2>
+
+      <ul>
+        <% drawing.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <% form.label :title %>
+    <%= form.text_field :title, class:"form-control", placeholder:"Title" %>
+  </div>
+
+  <div class="field form-group">
+    
+    <%= form.text_field :description, class:"form-control", placeholder:"Description" %>
+  </div>
+
+  <div class="field form-group">
+    
+    <%= form.number_field :user_id, id: :drawing_user_id, class:"form-control", value: current_user.id, type: :hidden %>
+  </div>
+  
+<br/>
+  <div class="actions">
+    <%= form.submit class:'btn btn-secondary' %>
+  </div>
+<% end %>

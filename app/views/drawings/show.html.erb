@@ -1,0 +1,20 @@
+
+<div class="jumbotron">
+  <h1 class="display-4">
+    <%= @drawing.title %>
+  </h1>
+  <p class="lead">
+    <%= @drawing.description %>
+  </p>
+  <br/>
+
+  <%= link_to 'Edit', edit_drawing_path(@drawing), class:"btn btn-secondary" %>
+
+<%= link_to 'Delete', @drawing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+   
+<%= link_to 'Back', drawings_path, class:"btn btn-dark" %>
+
+</div>
+
+
+

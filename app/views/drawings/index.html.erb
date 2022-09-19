@@ -1,0 +1,41 @@
+
+
+<% if user_signed_in? %>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @drawings.each do |drawing| %>
+        <% if drawing.user == current_user %>
+        <tr>
+          <td>
+          <%= link_to drawing.title, drawing %>
+          </td>
+          <td><%= drawing.description %></td>
+          <td><%= link_to 'Delete', drawing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+          
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Drawing', new_drawing_path, class:"btn btn-secondary" %>
+<% else %>
+
+<h1>Home</h1>
+
+<p>
+  <%= link_to "Sign Up", new_user_registration_path%> to create a <a target="blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas API</a> drawing.
+</p>
+
+<% end %>
