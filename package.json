@@ -1,6 +1,9 @@
 {
   "name": "CanvasDrawDemo",
   "private": true,
+  "scripts": {
+    "heroku-prebuild": "yarn install --production=false"
+  },
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
@@ -8,8 +11,7 @@
     "@rails/webpacker": "^5.4.3",
     "fabric": "^5.2.4",
     "jquery": "^3.6.1",
-    "turbolinks": "^5.2.0",
-    "webpack-dev-server": "^3.11.0"
+    "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
